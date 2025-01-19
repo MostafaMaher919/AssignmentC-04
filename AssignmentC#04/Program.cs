@@ -123,7 +123,7 @@
 
             //Console.WriteLine("Enter a number");
 
-            int num= int.Parse(Console.ReadLine());
+            int num = int.Parse(Console.ReadLine());
 
 
 
@@ -145,8 +145,8 @@
             //factorial problem
             //Console.WriteLine(Factorial(7));
 
-            Console.WriteLine(ChangeChar("ahmed",7,'h') );
-            
+            Console.WriteLine(ChangeChar("ahmed", 7, 'h'));
+
 
         }
     }
