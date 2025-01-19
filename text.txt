@@ -1,0 +1,67 @@
+Explain the difference between passing (Value type parameters) by value and by reference then write a suitable c# example.
+
+Passing by Value: A copy of the variable is passed to the method; changes inside the method do not affect the original variable.
+
+Passing by Reference: The actual variable's memory address is passed, so changes inside the method affect the original variable.
+
+
+
+
+using System;
+
+class Program
+{
+    static void PassByValue(int x) { x = 20; }
+    static void PassByReference(ref int x) { x = 20; }
+
+    static void Main()
+    {
+        int number = 10;
+        PassByValue(number);
+        Console.WriteLine("After PassByValue: " + number); // Output: 10
+
+        PassByReference(ref number);
+        Console.WriteLine("After PassByReference: " + number); // Output: 20
+    }
+}
+
+
+
+Explain the difference between passing (Reference type parameters) by value and by reference then write a suitable c# example.
+
+Difference Between Passing Reference Type by Value and by Reference
+
+Passing Reference Type by Value:
+A copy of the reference (pointer to the object) is passed to the method.
+
+Changes made to the object's properties inside the method affect the original object.
+
+However, if the reference itself is reassigned inside the method, it does not affect the original reference.
+
+Passing Reference Type by Reference:
+The actual reference (memory address of the reference) is passed.
+
+Changes to the object's properties and the reference itself affect the original variable.
+
+
+
+
+using System;
+
+class Program
+{
+    class MyClass { public int Value = 10; }
+
+    static void PassByValue(MyClass obj) { obj.Value = 20; obj = new MyClass(); }
+    static void PassByReference(ref MyClass obj) { obj.Value = 30; obj = new MyClass(); }
+
+    static void Main()
+    {
+        MyClass obj = new MyClass();
+        PassByValue(obj);
+        Console.WriteLine("After PassByValue: " + obj.Value); // Output: 20
+
+        PassByReference(ref obj);
+        Console.WriteLine("After PassByReference: " + obj.Value); // Output: 10 (new object)
+    }
+}
